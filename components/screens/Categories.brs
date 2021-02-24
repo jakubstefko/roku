@@ -1,7 +1,9 @@
 function init()
-    m.category_list=m.top.findNode("CategoryList")
-    m.category_list.setFocus(true)
+    m.category_list = m.top.findNode("CategoryList")
+    m.content = m.top.findNode("Content")
+
     m.category_list.observeField("itemSelected", "onCategorySelected")
+    m.category_list.setFocus(true)
 end function
 
 sub onCategorySelected(obj)
