@@ -5,15 +5,12 @@
     extends="Scene"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
+    <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
     <children>
-        <Label
-            id="myLabel" 
-            text="Hello World!"
-            width="1280" 
-            height="720" 
-            horizAlign="center"
-            vertAlign="center"
+        <Categories 
+            id="Categories"
+            visible="true"
+            translation="[0,0]"
         />
       </children>
-    <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
 </component>
