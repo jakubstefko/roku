@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component
+    name="category_screen"
+    extends="Group"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd" >
+    <script type="text/brightscript" uri="pkg:/components/screens/category_screen.brs" />
+    <interface>
+        <field
+            id="category_selected"
+            type="assocarray"
+            alias="category_list.itemSelected" />
+    </interface>
+    <children>
+        <Label
+            translation="[75, 150]"
+            id="category_screen_title_label"
+            font="font:LargeBoldSystemFont"
+            text="LOOKUP YOUR ACTIVITY:" />
+        <RadioButtonList
+            id="category_list"
+            translation="[100, 200]"
+            itemSize="[400,48]" >
+            <ContentNode id="CategoryListContent" role="content" >
+                <category_model title="POSTS" feed_url="https://jsonplaceholder.typicode.com/users/1/posts" />
+                <category_model title="ALBUMS" feed_url="https://jsonplaceholder.typicode.com/users/1/albums" />
+                <category_model title="TODOS" feed_url="https://jsonplaceholder.typicode.com/users/1/todos" />
+              </ContentNode>
+        </RadioButtonList>
+    </children>
+</component>

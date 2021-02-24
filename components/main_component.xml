@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <component
-    name="MainScene"
+    name="main_component"
     extends="Scene"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
-    <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
+    <script type="text/brightscript" uri="pkg:/components/main_component.brs" />
     <children>
-        <Categories 
-            id="Categories"
+        <category_screen 
+            id="category_screen"
+            visible="true"
+            translation="[0,0]"
+        />
+        <content_screen 
+            id="content_screen"
             visible="true"
             translation="[0,0]"
         />

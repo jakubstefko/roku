@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <component
-    name="FeedTask"
-    extends="task"
+    name="category_model"
+    extends="ContentNode"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
-    <script type="text/brightscript" uri="pkg:/components/tasks/FeedTask.brs" />
 	<interface>
-		<field id="url" type="string" />
-        <field id="response" type="string" />
+		<field id="feed_url" type="string" />
 	</interface>
 </component>
