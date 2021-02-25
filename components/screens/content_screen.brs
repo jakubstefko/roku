@@ -1,6 +1,13 @@
 sub init()
     m.content_grid = m.top.FindNode("content_grid")
     m.header = m.top.FindNode("content_screen_title_label")
+    m.top.observeField("visible", "on_visible_change")
+end sub
+
+sub on_visible_change()
+    if m.top.visible then
+        m.content_grid.setFocus(true)
+    end if
 end sub
 
 sub on_feed_changed(obj)

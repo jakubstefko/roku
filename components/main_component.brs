@@ -33,6 +33,19 @@ sub on_feed_response(obj)
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
-    ? "[main_scene] onKeyEvent", key, press
+    ' u need to check press, because each button press IRL creates 2 onKeyEvent's
+    ' one with press true (onKeyDown) and one with press false (onKeyUp)
+
+    ' return true means that event is handled and will not event-bubble
+    
+    if key = "back" and press then
+        if m.content_screen.visible then
+            m.content_screen.visible = false
+            m.category_screen.visible = true
+            m.category_screen.setFocus(true)
+            return true
+        end if
+    end if
+
     return false 
 end function
