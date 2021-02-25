@@ -15,9 +15,9 @@ sub on_feed_changed(obj)
 
     for each item in feed
 		node = createObject("roSGNode","ContentNode")
-	    node.streamformat = "png"
+	    node.streamformat = "hls"
 	    node.title = Substitute("Rozmowa {0}", Str(item.id))
-	    node.url = item.url
+	    node.url = "https://devstreaming-cdn.apple.com/videos/streaming/examples/bipbop_16x9/bipbop_16x9_variant.m3u8"
 	    node.description = item.title
 	    node.HDGRIDPOSTERURL = item.thumbnailUrl
 	    node.SHORTDESCRIPTIONLINE1 = Substitute("Rozmowa {0}", Str(item.id))
