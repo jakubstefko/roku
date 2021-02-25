@@ -10,13 +10,13 @@
     <interface>
         <field
             id="feed_data"
-            type="assocarray"
-            onChange="onFeedChanged" />
+            type="array"
+            onChange="on_feed_changed" />
     </interface>
     <children>
         <Label
             translation="[75, 75]"
-            id="header"
+            id="content_screen_title_label"
             color="0xFFFFFF"
             font="font:LargeBoldSystemFont"
             text="" />

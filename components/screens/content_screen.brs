@@ -1,27 +1,28 @@
 sub init()
     m.content_grid = m.top.FindNode("content_grid")
-    m.header = m.top.FindNode("header")
+    m.header = m.top.FindNode("content_screen_title_label")
 end sub
 
-sub onFeedChanged(obj)
+sub on_feed_changed(obj)
     feed = obj.getData()
-    m.header.text = feed.title
-    postercontent = createObject("roSGNode","ContentNode")
-    for each item in feed.items
+    m.header.text = Substitute("{0} zdjęć:", Str(feed.count()))
+    poster_content = createObject("roSGNode","ContentNode")
+
+    for each item in feed
 		node = createObject("roSGNode","ContentNode")
-	    node.streamformat = item.streamformat
-	    node.title = item.title
+	    node.streamformat = "png"
+	    node.title = Substitute("Zdjęcie {0}", Str(item.id))
 	    node.url = item.url
-	    node.description = item.description
-	    node.HDGRIDPOSTERURL = item.thumbnail
-	    node.SHORTDESCRIPTIONLINE1 = item.title
-		node.SHORTDESCRIPTIONLINE2 = item.description
-	    postercontent.appendChild(node)
+	    node.description = item.title
+	    node.HDGRIDPOSTERURL = item.thumbnailUrl
+	    node.SHORTDESCRIPTIONLINE1 = Substitute("Zdjęcie {0}", Str(item.id))
+		node.SHORTDESCRIPTIONLINE2 = item.title
+	    poster_content.appendChild(node)
     end for
-    showpostergrid(postercontent)
+    show_poster_grid(poster_content)
 end sub
 
-sub showpostergrid(content)
+sub show_poster_grid(content)
   m.content_grid.content=content
   m.content_grid.visible=true
   m.content_grid.setFocus(true)

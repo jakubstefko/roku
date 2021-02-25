@@ -1,37 +1,34 @@
 sub init()
-    ? "[main_scene] init"
     m.category_screen = m.top.findNode("category_screen")
     m.content_screen = m.top.findNode("content_screen")
 	
-    m.category_screen.observeField("category_selected", "onCategorySelected")
+    m.category_screen.observeField("category_selected", "on_category_selected")
     m.category_screen.setFocus(true)
 end sub
 
-sub onCategorySelected(obj)
+sub on_category_selected(obj)
     list = m.category_screen.findNode("category_list")
     item = list.content.getChild(obj.getData())
-    loadFeed(item.feed_url)
+    load_feed(item.feed_url)
 end sub
 
-sub loadFeed(url)
-    m.feed_task = createObject("roSGNode", "FeedTask")
-    m.feed_task.observeField("response", "onFeedResponse")
+sub load_feed(url)
+    m.feed_task = createObject("roSGNode", "feed_task")
+    m.feed_task.observeField("response", "on_feed_response")
     m.feed_task.url = url
     m.feed_task.control = "RUN"
 end sub  
 
-sub onFeedResponse(obj)
+sub on_feed_response(obj)
     response = obj.getData()
-	'turn the JSON string into an Associative Array
 	data = parseJSON(response)
-	if data <> Invalid and data.items <> invalid
-        'hide the category screen and show content screen
+
+	if data <> invalid
         m.category_screen.visible = false
         m.content_screen.visible = true
-		' assign data to content screen
 		m.content_screen.feed_data = data
 	else
-		? "FEED RESPONSE IS EMPTY!"
+		? "Error while fetching data, returned string is not a JSON one!"
 	end if
 end sub
 

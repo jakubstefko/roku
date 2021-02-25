@@ -16,15 +16,14 @@
             translation="[75, 150]"
             id="category_screen_title_label"
             font="font:LargeBoldSystemFont"
-            text="LOOKUP YOUR ACTIVITY:" />
+            text="LOOKUP:" />
         <RadioButtonList
             id="category_list"
             translation="[100, 200]"
             itemSize="[400,48]" >
             <ContentNode id="CategoryListContent" role="content" >
-                <category_model title="POSTS" feed_url="https://jsonplaceholder.typicode.com/users/1/posts" />
-                <category_model title="ALBUMS" feed_url="https://jsonplaceholder.typicode.com/users/1/albums" />
-                <category_model title="TODOS" feed_url="https://jsonplaceholder.typicode.com/users/1/todos" />
+                <category_model title="MY PHOTOS" feed_url="https://jsonplaceholder.typicode.com/users/1/photos" />
+                <category_model title="COLLEAGUE PHOTOS" feed_url="https://jsonplaceholder.typicode.com/users/2/photos" />
               </ContentNode>
         </RadioButtonList>
     </children>
