@@ -2,8 +2,9 @@ sub init()
     m.category_screen = m.top.findNode("category_screen")
     m.content_screen = m.top.findNode("content_screen")
     m.detail_screen = m.top.findNode("detail_screen")
-
+    m.error_dialog = m.top.findNode("error_dialog")
     m.video_player = m.top.findNode("video_player")
+
 	init_video_player()
 
     m.category_screen.observeField("category_selected", "on_category_selected")
@@ -26,8 +27,30 @@ sub on_player_position_changed(obj)
 	? "on_player_position_changed: ", obj.getData()
 end sub
 
+sub show_error_dialog(message)
+    m.error_dialog.title = "Błąd"
+	m.error_dialog.message = message
+	m.error_dialog.visible=true
+	m.top.dialog = m.error_dialog
+end sub
+
+
 sub on_player_state_changed(obj)
+    state = obj.getData()
     ? "on_player_state_changed: ", obj.getData()
+    if state = "error"
+        ? "VIDEO ERROR: ("; m.video_player.errorCode;") ";m.video_player.errorMsg
+        show_error_dialog(m.videoplayer.errorMsg + chr(10) + "Kod błędu: " + m.videoplayer.errorCode.toStr())
+    else if state = "finished"
+        close_video()
+    end if
+end sub
+
+sub close_video()
+    m.video_player.control = "stop"
+    m.video_player.visible = false
+    m.detail_screen.visible = true
+    m.detail_screen.setFocus(true)
 end sub
 
 sub on_play_button_pressed()
@@ -99,9 +122,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             m.content_screen.setFocus(true)
             return true
         else if m.video_player.visible then
-            m.video_player.visible = false
-            m.detail_screen.visible = true
-            m.detail_screen.setFocus(true)
+            close_video()
             return true
         end if
     end if

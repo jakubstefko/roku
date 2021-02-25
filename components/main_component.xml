@@ -25,5 +25,9 @@
             translation="[0,0]"
             width="1920"
             height="1080" />
+        <Dialog
+            title="Błąd"
+            visible="false"
+            id="error_dialog" />
       </children>
 </component>
