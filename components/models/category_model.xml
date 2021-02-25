@@ -7,5 +7,6 @@
     xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
 	<interface>
 		<field id="feed_url" type="string" />
+        <field id="description" type="string" />
 	</interface>
 </component>

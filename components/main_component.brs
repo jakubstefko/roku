@@ -19,7 +19,14 @@ end sub
 
 sub on_category_selected(obj)
     list = m.category_screen.findNode("category_list")
+    content_header = m.content_screen.findNode("content_screen_title_label")
+    content_description = m.content_screen.findNode("content_screen_description")
+
     item = list.content.getChild(obj.getData())
+
+    content_header.text = item.title
+    content_description.text = item.description
+    
     load_feed(item.feed_url)
 end sub
 

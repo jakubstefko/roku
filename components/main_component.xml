@@ -13,7 +13,7 @@
             translation="[0,0]" />
         <content_screen 
             id="content_screen"
-            visible="true"
+            visible="false"
             translation="[0,0]" />
         <detail_screen 
             id="detail_screen"

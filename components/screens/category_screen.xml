@@ -16,14 +16,28 @@
             translation="[75, 150]"
             id="category_screen_title_label"
             font="font:LargeBoldSystemFont"
-            text="LOOKUP:" />
+            text="Zobacz:" />
         <RadioButtonList
             id="category_list"
             translation="[100, 200]"
-            itemSize="[400,48]" >
+            itemSize="[500,48]" >
             <ContentNode id="CategoryListContent" role="content" >
-                <category_model title="MY PHOTOS" feed_url="https://jsonplaceholder.typicode.com/users/1/photos" />
-                <category_model title="COLLEAGUE PHOTOS" feed_url="https://jsonplaceholder.typicode.com/users/2/photos" />
+                <category_model
+                    title="Najnowsze rozmowy"
+                    feed_url="https://jsonplaceholder.typicode.com/users/1/photos"
+                    description="Rozmowy dziennikarzy RMF FM z ciekawymi i nietuzinkowymi osobowościami ze świata nauki, kultury, sportu czy polityki."/>
+                <category_model
+                    title="Poranne rozmowy"
+                    feed_url="https://jsonplaceholder.typicode.com/users/2/photos"
+                    description="Na poranną publicystykę zaprasza Robert Mazurek. Codziennie, od poniedziałku do piątku o 8:02 polecamy Poranną rozmowę w RMF FM. Gośćmi są nie tylko politycy, ale i ludzie ze świata kultury czy sportu." />
+                <category_model
+                    title="Popołudniowe rozmowy"
+                    feed_url="https://jsonplaceholder.typicode.com/users/3/photos"
+                    description="Podsumowanie dnia w Popołudniowej rozmowie w RMF FM. Codziennie, od poniedziałku do piątku, tuż po 18.00 zaprasza Marcin Zaborski. Gospodarz programu nie unika trudnych i niewygodnych pytań!" />
+                <category_model
+                    title="Gość Krzysztofa Ziemca"
+                    feed_url="https://jsonplaceholder.typicode.com/users/4/photos"
+                    description="W sobotnie poranki, tuż po godz. 8:30 Krzysztof Ziemiec zaprasza na rozmowy nie tylko o polityce. Wśród gości dziennikarza osoby z pierwszych stron gazet." />
               </ContentNode>
         </RadioButtonList>
     </children>
