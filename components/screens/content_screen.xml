@@ -12,6 +12,10 @@
             id="feed_data"
             type="array"
             onChange="on_feed_changed" />
+        <field
+            id="content_selected"
+            type="assocarray"
+            alias="content_grid.itemSelected" />
     </interface>
     <children>
         <Label

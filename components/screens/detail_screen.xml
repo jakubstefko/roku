@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component 
+    name="detail_screen"
+    extends="Group"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd"
+    initialFocus="content_grid" >
+    <script type="text/brightscript" uri="pkg:/components/screens/detail_screen.brs" />
+    <interface>
+        <field
+            id="content"
+		    type="node"
+		    alwaysnotify="true"
+		    onChange="on_content_change" />
+		<field
+            id="play_button_pressed"
+		    type="int"
+		    alwaysnotify="true"
+		    alias="play_button.buttonSelected" />
+    </interface>
+    <children>
+        <Poster
+            id="thumbnail"
+            width="500"
+            height="280"
+            translation="[200,200]" />
+        <Button
+            id="play_button"
+            text="PLAY"
+            translation="[200, 600]" />
+        <Label
+            id="detail_screen_title_label"
+            font="font:LargeBoldSystemFont"
+            color="0xFFFFFF"
+            text=""
+            translation="[800,200]" />
+        <Label
+            id="description"
+            font="font:MediumSystemFont"
+            color="0xFFFFFF"
+            wrap="true"
+            width="800"
+            text=""
+            translation="[800,300]" />
+    </children>
+</component>

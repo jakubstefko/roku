@@ -1,15 +1,34 @@
 sub init()
     m.category_screen = m.top.findNode("category_screen")
     m.content_screen = m.top.findNode("content_screen")
+    m.detail_screen = m.top.findNode("detail_screen")
+    m.video_player = m.top.findNode("video_player")
 	
     m.category_screen.observeField("category_selected", "on_category_selected")
+    m.content_screen.observeField("content_selected", "on_content_selected")
+    m.detail_screen.observeField("play_button_pressed", "on_play_button_pressed")
+
     m.category_screen.setFocus(true)
+end sub
+
+sub on_play_button_pressed()
+    m.detail_screen.visible = false
+    m.video_player.visible = true
+    m.video_player.setFocus(true)
 end sub
 
 sub on_category_selected(obj)
     list = m.category_screen.findNode("category_list")
     item = list.content.getChild(obj.getData())
     load_feed(item.feed_url)
+end sub
+
+sub on_content_selected(obj)
+    index = obj.getData()
+    item = m.content_screen.findNode("content_grid").content.getChild(index)
+    m.detail_screen.content = item
+    m.content_screen.visible = false
+    m.detail_screen.visible = true
 end sub
 
 sub load_feed(url)
@@ -43,6 +62,16 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             m.content_screen.visible = false
             m.category_screen.visible = true
             m.category_screen.setFocus(true)
+            return true
+        else if m.detail_screen.visible then
+            m.detail_screen.visible = false
+            m.content_screen.visible = true
+            m.content_screen.setFocus(true)
+            return true
+        else if m.video_player.visible then
+            m.video_player.visible = false
+            m.detail_screen.visible = true
+            m.detail_screen.setFocus(true)
             return true
         end if
     end if

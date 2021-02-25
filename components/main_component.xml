@@ -10,12 +10,14 @@
         <category_screen 
             id="category_screen"
             visible="true"
-            translation="[0,0]"
-        />
+            translation="[0,0]" />
         <content_screen 
             id="content_screen"
             visible="true"
-            translation="[0,0]"
-        />
+            translation="[0,0]" />
+        <detail_screen 
+            id="detail_screen"
+            visible="false"
+            translation="[0,0]" />
       </children>
 </component>
