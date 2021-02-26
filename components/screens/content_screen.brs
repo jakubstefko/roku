@@ -32,3 +32,7 @@ sub show_poster_grid(content)
   m.content_grid.visible=true
   m.content_grid.setFocus(true)
 end sub
+
+function update_config(params)
+	m.host = params.config.host
+end function

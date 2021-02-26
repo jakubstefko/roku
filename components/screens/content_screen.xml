@@ -16,6 +16,7 @@
             id="content_selected"
             type="assocarray"
             alias="content_grid.itemSelected" />
+        <function name="update_config" />
     </interface>
     <children>
         <Label

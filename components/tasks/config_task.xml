@@ -9,5 +9,6 @@
 	<interface>
 		<field id="file_path" type="string" />
         <field id="file_data" type="assocarray" />
+        <field id="error" type="string" />
 	</interface>
 </component>

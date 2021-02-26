@@ -16,13 +16,20 @@ end sub
 
 sub load_configuration()
     m.config_task = CreateObject("roSGNode", "config_task")
+    m.config_task.observeField("error", "on_config_error")
     m.config_task.observeField("file_data", "on_config_response")
     m.config_task.file_path = "resources/configuration/data_sources.json"
     m.config_task.control = "RUN"
 end sub
 
+sub on_config_error(obj)
+    show_error_dialog(obj.getData())
+end sub
+
 sub on_config_response(obj)
-    m.category_screen.callFunc("update_config", { config: obj.getData() })
+    parameters = { config: obj.getData() }
+    m.category_screen.callFunc("update_config", parameters)
+    m.content_screen.callFunc("update_config", parameters)
 end sub
 
 sub init_video_player()
@@ -97,10 +104,15 @@ end sub
 
 sub load_feed(url)
     m.feed_task = createObject("roSGNode", "feed_task")
+    m.feed_task.observeField("error", "on_feed_error")
     m.feed_task.observeField("response", "on_feed_response")
     m.feed_task.url = url
     m.feed_task.control = "RUN"
 end sub  
+
+sub on_feed_error(obj)
+    show_error_dialog(obj.getData())
+end sub
 
 sub on_feed_response(obj)
     response = obj.getData()
@@ -111,7 +123,7 @@ sub on_feed_response(obj)
         m.content_screen.visible = true
 		m.content_screen.feed_data = data
 	else
-		? "Error while fetching data, returned string is not a JSON one!"
+        show_error_dialog("Niepoprawny format pliku JSON")
 	end if
 end sub
 
