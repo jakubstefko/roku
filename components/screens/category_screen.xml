@@ -10,6 +10,7 @@
             id="category_selected"
             type="assocarray"
             alias="category_list.itemSelected" />
+        <function name="update_config" />
     </interface>
     <children>
         <Label

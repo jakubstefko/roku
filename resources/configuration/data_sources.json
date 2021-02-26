@@ -1,0 +1,25 @@
+{
+  "host": "https://jsonplaceholder.typicode.com/users",
+  "categories": [
+    {
+      "title": "Najnowsze rozmowy",
+      "description": "Rozmowy dziennikarzy RMF FM z ciekawymi i nietuzinkowymi osobowościami ze świata nauki, kultury, sportu czy polityki.",
+      "feed_url": "/1/photos"
+    },
+    {
+      "title": "Poranne rozmowy",
+      "description": "Na poranną publicystykę zaprasza Robert Mazurek. Codziennie, od poniedziałku do piątku o 8:02 polecamy Poranną rozmowę w RMF FM. Gośćmi są nie tylko politycy, ale i ludzie ze świata kultury czy sportu.",
+      "feed_url": "/2/photos"
+    },
+    {
+      "title": "Popołudniowe rozmowy",
+      "description": "Podsumowanie dnia w Popołudniowej rozmowie w RMF FM. Codziennie, od poniedziałku do piątku, tuż po 18.00 zaprasza Marcin Zaborski. Gospodarz programu nie unika trudnych i niewygodnych pytań!",
+      "feed_url": "/3/photos"
+    },
+    {
+      "title": "Gość Krzysztofa Ziemca",
+      "description": "W sobotnie poranki, tuż po godz. 8:30 Krzysztof Ziemiec zaprasza na rozmowy nie tylko o polityce. Wśród gości dziennikarza osoby z pierwszych stron gazet.",
+      "feed_url": "/4/photos"
+    }
+  ]
+}

@@ -14,6 +14,17 @@ sub init()
     m.category_screen.setFocus(true)
 end sub
 
+sub load_configuration()
+    m.config_task = CreateObject("roSGNode", "config_task")
+    m.config_task.observeField("file_data", "on_config_response")
+    m.config_task.file_path = "resources/configuration/data_sources.json"
+    m.config_task.control = "RUN"
+end sub
+
+sub on_config_response(obj)
+    m.category_screen.callFunc("update_config", { config: obj.getData() })
+end sub
+
 sub init_video_player()
     m.video_player.EnableCookies()
 	m.video_player.setCertificatesFile("common:/certs/ca-bundle.crt")
